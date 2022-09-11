@@ -1,0 +1,12 @@
+<button (click)="onPageChange('first')"
+        [disabled]="itemsOffset <= 0"
+> << </button>
+<button (click)="onPageChange('back')"
+        [disabled]="itemsOffset <= 0"
+> < </button>
+<button (click)="onPageChange('forth')"
+        [disabled]="itemsOffset + itemsPerPage >= totalItems"
+> > </button>
+<button (click)="onPageChange('last')"
+        [disabled]="itemsOffset + itemsPerPage >= totalItems"
+> >> </button>

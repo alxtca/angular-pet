@@ -1,0 +1,30 @@
+Advanced todo app idea:
+- several tabs for category
+- it is possible to add and remove categories
+- when removing, ask to remove tasks with that category
+  or move them to general category
+- task on every category is possible to assign to
+  another category (in task edit - dropdown list)
+
+How store is working
+- on app load check local storage once.
+- on every item added/edited update akita state.
+- everytime akita state changes, update local storage
+
+Data structure
+id,
+value,
+category,
+complete,
+due date
+
+Next things to do with this app:
+
+- split different ways to implement a todo into separate components (modules?)
+- see if input field can be made as a generic component and be reused
+- add JSON server and interact with it?
+
+- styles: angular-materials, mobile first
+
+- explore more af Akita features:
+  * setLoading() ...

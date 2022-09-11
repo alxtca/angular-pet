@@ -1,0 +1,12 @@
+<div *ngIf="inputTemplate">
+  <p>display-template works!</p>
+  <div [ngTemplateOutlet]="inputTemplate">
+</div>
+
+
+</div>
+<div *ngIf="para">
+  <p>render with ng-content tags what was between selector tags:</p>
+  <ng-content></ng-content>
+</div>
+

@@ -1,0 +1,21 @@
+<div *ngIf="displayWarning">
+  <h4 style="
+  color: darkred;
+  background-color: lightpink;
+  padding: 5px;
+  border-radius: 3px;
+">Error: {{text}}
+    <button
+      (click)="closeOnClick()"
+      style="
+      display: inline;
+      float: right;
+      background-color: darkred;
+      border-radius: 3px;
+      color: white;"
+    >X</button>
+  </h4>
+
+  <p>Here you can insert hb-callout</p>
+</div>
+

@@ -1,0 +1,74 @@
+<nav
+  *ngIf="total > 0"
+  class="hb-pagination"
+  [ngClass]="{'hb-pagination--right': showRight}"
+  role="navigation"
+  aria-label="Sidenavigasjon"
+>
+  <div class="hb-pagination-itemsPerPage">
+    <label for="pagination-{{uuid}}-itemsPerPage" class="hb-label" translate>Antall per side:</label>
+    <select (change)="onChange($event.target.value)" id="pagination-{{uuid}}-itemsPerPage"
+      class="hb-select"
+      [attr.data-e2e-selector]="prefiks + '-antall-per-side-select'"
+    >
+      <option
+        *ngFor="let antall of numberOfPagesList"
+        [value]="antall"
+        [selected]="numberOfPages === antall"
+      >
+        {{ antall }}
+      </option>
+    </select>
+  </div>
+
+  <span class="hb-pagination-result" [attr.data-e2e-selector]="prefiks + '-resultat'">
+    <span class="hb-screenreaderOnly" translate>Viser resultat</span>
+    {{ startPos + 1 }}‐{{ startPos + numberOfPages > total ? total : startPos + numberOfPages }}
+    <span translate>Paginering.av</span>
+    {{ total }}
+  </span>
+
+  <div class="hb-pagination-nav">
+
+    <button
+      [disabled]="startPos <= 0"
+      (click)="_forsteSide()"
+      class="hb-button hb-button--subtle hb-button--iconOnly hb-pagination-prev"
+      [attr.data-e2e-selector]="prefiks + '-forste-side'"
+    >
+      <span class="hb-button-text hb-screenreaderOnly" translate>Gå til første side</span>
+      <hb-icon [customIconUrl]="'/assets/images/custom.sprite.svg'" [iconId]="'arrow-button-left-1'"></hb-icon>
+    </button>
+
+    <button
+      [disabled]="startPos <= 0"
+      (click)="_endreSide(-numberOfPages)"
+      class="hb-button hb-button--subtle hb-button--iconOnly hb-pagination-prev"
+      [attr.data-e2e-selector]="prefiks + '-forrige-side'"
+    >
+      <span class="hb-button-text hb-screenreaderOnly" translate>Gå til forrige side</span>
+      <hb-icon [iconId]="'arrow-left-1'" class="hb-button-icon" size="SizeNone"></hb-icon>
+    </button>
+
+    <button
+      [disabled]="startPos + numberOfPages >= total"
+      (click)="_endreSide(numberOfPages)"
+      class="hb-button hb-button--subtle hb-button--iconOnly hb-pagination-next"
+      [attr.data-e2e-selector]="prefiks + '-neste-side'"
+    >
+      <span class="hb-button-text hb-screenreaderOnly" translate>Gå til neste side</span>
+      <hb-icon [iconId]="'arrow-right-1'" class="hb-button-icon" size="SizeNone"></hb-icon>
+    </button>
+
+    <button
+      [disabled]="startPos + numberOfPages >= total"
+      (click)="_sisteSide()"
+      class="hb-button hb-button&#45;&#45;subtle hb-button&#45;&#45;iconOnly hb-pagination-prev"
+      [attr.data-e2e-selector]="prefiks + '-siste-side'"
+    >
+      <span class="hb-button-text hb-screenreaderOnly" translate>Gå til siste side</span>
+      <hb-icon [customIconUrl]="'/assets/images/custom.sprite.svg'" [iconId]="'arrow-button-right-1'"></hb-icon>
+    </button>
+
+  </div>
+</nav>
