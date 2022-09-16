@@ -4,7 +4,7 @@ import {AtodoQuery} from "./state/atodo.query";
 import {AtodoService} from "./state/atodo.service";
 import {Observable, of} from "rxjs";
 import {NotifyService} from "./notify.service";
-import {UntypedFormArray, UntypedFormControl, UntypedFormGroup, Validators} from "@angular/forms";
+import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 
 
 @Component({
@@ -39,15 +39,15 @@ export class AppComponent implements OnInit{
   ]
 
 //example 1
-  form1 = new UntypedFormGroup({
-    email: new UntypedFormControl('', {validators: [Validators.required]}),
-    password: new UntypedFormControl('', {validators: [Validators.required]})
+  form1 = new FormGroup({
+    email: new FormControl('', {validators: [Validators.required]}),
+    password: new FormControl('', {validators: [Validators.required]})
   })
 //example 2
-  email = new UntypedFormControl('', {validators: [Validators.required]})
-  password = new UntypedFormControl('', {validators: [Validators.required]})
+  email = new FormControl('', {validators: [Validators.required]})
+  password = new FormControl('', {validators: [Validators.required]})
 
-  form2 = new UntypedFormGroup({
+  form2 = new FormGroup({
     email: this.email,
     password: this.password
   })
@@ -56,14 +56,14 @@ export class AppComponent implements OnInit{
 
   //example 3
 
-  form3 = new UntypedFormGroup({
-    title: new UntypedFormControl('This is the title'),
-    address_group: new UntypedFormGroup({
-      street: new UntypedFormControl('the street'),
-      city: new UntypedFormControl('the city'),
-      code_group: new UntypedFormGroup({
-        zip: new UntypedFormControl('3515'),
-        num: new UntypedFormControl('99'),
+  form3 = new FormGroup({
+    title: new FormControl('This is the title'),
+    address_group: new FormGroup({
+      street: new FormControl('the street'),
+      city: new FormControl('the city'),
+      code_group: new FormGroup({
+        zip: new FormControl('3515'),
+        num: new FormControl('99'),
       })
     })
   })
@@ -74,25 +74,25 @@ export class AppComponent implements OnInit{
 
   //example 4
 
-  new_car = new UntypedFormGroup({
-    model: new UntypedFormControl('d'),
-    year: new UntypedFormControl('1'),
+  new_car = new FormGroup({
+    model: new FormControl('d'),
+    year: new FormControl('1'),
   })
 
-  cars = new UntypedFormArray([
+  cars = new FormArray([
     this.new_car
   ])
 
-  form4 = new UntypedFormGroup({
-    title: new UntypedFormControl('This is the title'),
+  form4 = new FormGroup({
+    title: new FormControl('This is the title'),
     cars: this.cars
   })
 
   addCar() {
     this.cars.push(
-      new UntypedFormGroup({
-        model: new UntypedFormControl(''),
-        year: new UntypedFormControl(''),
+      new FormGroup({
+        model: new FormControl(''),
+        year: new FormControl(''),
       })
     )
   }
