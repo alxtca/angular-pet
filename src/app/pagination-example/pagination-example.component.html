@@ -1,0 +1,24 @@
+<h2> Paginator</h2>
+
+<p>list of items</p>
+
+<ol [start]="itemsOffset+1">
+  <li
+    *ngFor="let item of pageItems | PaginatorPipe:itemsOffset:itemsPerPage"
+  >{{item}}</li>
+</ol>
+<div class="row">
+  <app-select
+    [itemsPerPage]="itemsPerPage"
+    (selectedItemsPerPage)="changeItemsPerPage($event)">
+  </app-select>
+  <app-paginator
+    [itemsOffset]="itemsOffset"
+    [itemsPerPage]="itemsPerPage"
+    [totalItems]="pageItems.length"
+    (changeItemOffset)="setItemOffset($event)"
+  ></app-paginator>
+</div>
+
+<br>
+<p><small>note: app-select(dropdown) - is separate component</small></p>

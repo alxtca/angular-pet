@@ -19,3 +19,24 @@
   <p>Here you can insert hb-callout</p>
 </div>
 
+<!--
+app-notify (hb-notify) - styres av notify component. den bare slår på og av.
+  den setter en hb-callout in i hb-notify
+  kommer fra designsystem-angular-core / meddelelser
+hb-callout - en component som tar diverse @Input() for å sette styling på meldingen
+  kommer fra designsystem-angular-core / callout
+
+notify component subscribes to NotifyService (angular-starter / services)
+  #1 bruk Eksempel "Informasjonsmeldinger".
+  NotifyService.notify() - for å sende notification (brukes på en knapp).
+  da vil den <hb-notify> fange den opp til slutt og vise meldingen
+  #2 bruk Eksempel "Feilhåndtering".
+  går via EksempelDataService -> EksempelService - det er en backend som sender error 500
+
+  interceptor (husbanken-design / interceptors) oppdager error 500 og bruker NotifyService.notify()
+    (den trenger en oppdatering uncaught-exception-handler.ts 34 negativ -> DESTRUCTIVE
+
+designsystem-angular-forms ->skjemaliste.component.ts
+  - start using FormControl<>
+-->
+

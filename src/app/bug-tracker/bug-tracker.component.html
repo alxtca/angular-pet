@@ -1,0 +1,28 @@
+<h2 style="color: darkred">With EntityStore <small>component name: bug-tracker</small></h2>
+<ul>
+  <li *ngFor="let part of parts$ | async">
+    {{part.description}}
+    <button (click)="deletePart(part.pn)">Delete</button>
+    <button (click)="editPart(part)">Edit</button>
+  </li>
+</ul>
+
+<div *ngIf="!isEditing">
+  <input [(ngModel)]="pn_description"  (keyup.enter)="addPart()">
+  <button (click)="addPart()">Add</button>
+</div>
+
+<div *ngIf="isEditing">
+  <input [(ngModel)]="pn_description" (keyup.enter)="finishEdit()">
+  <button (click)="finishEdit()">Update</button>
+</div>
+
+<button (click)="insertNewParts()">Insert new parts</button>
+<button (click)="logData()">Log all data</button>
+
+<!--<button (click)="logAll()" >Log all</button>
+<button (click)="addTodo()" >Add one</button>
+<button (click)="addTodo2()" >Add two</button>
+<button (click)="setAll()" >Set all</button>
+<button (click)="setAllArray()" >Set all[]</button>
+<button (click)="deleteOne()" >Delete one</button>-->

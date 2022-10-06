@@ -1,21 +1,15 @@
 <select (change)="onChange($event)"
         id="pagination-{{uuid}}-itemsPerPage"
         class="hb-select"
-        [attr.data-e2e-selector]="prefiks + '-antall-per-side-select'"
->
+        [attr.data-e2e-selector]="prefiks + '-antall-per-side-select'">
   <option
     *ngFor="let antall of itemsPerPageList"
     [value]="antall"
-    [selected]="itemsPerPage === antall"
-  >
+    [selected]="itemsPerPage === antall">
     {{ antall }}
   </option>
 </select>
 
 <!--
-was possible before
-<select (change)="onChange($event.target.value)">
-
 [selected] will add selected to option tag, this will be preselected on page load.
-
 -->

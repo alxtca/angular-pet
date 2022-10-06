@@ -1,0 +1,28 @@
+<h1>HostListener in component.ts</h1>
+<h2>Hello, you have clicked {{counter}} number of times!</h2>
+<button (click)="resetCounter()">Reset Counter</button>
+
+<h1>HostListener in a Custom Directive</h1>
+<h4 appLightUp
+    class="idk ml-4"
+>Click on this to change background</h4>
+
+<h1>HostListener & HostBinding in a Custom Directive</h1>
+<h4 appTest
+    class=""
+>Hover over this</h4>
+
+<h1>HostListener & HostBinding in a Custom Directive</h1>
+<h4 appTest2
+    class=""
+>Hover over this & click</h4>
+
+<h1>HostListener & HostBinding in a Custom Directive</h1>
+<input
+  appProp
+  (action)="handleAction($event)"
+  type="text"
+  [(ngModel)]="boxData"
+/>
+<!--this message is for verification messages below input field-->
+<p>{{message}}</p>

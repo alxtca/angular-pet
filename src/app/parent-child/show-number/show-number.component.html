@@ -1,0 +1,24 @@
+<div *ngIf="readyToSend"
+     style="border: 2px solid brown;
+     padding: 3px;
+     margin: 8px;
+     background-color: lightpink;
+     border-radius: 4px;
+     display: inline-block">
+  Sending to backend with a service ...
+</div>
+
+<div *ngIf="sendToServer.value"
+     style="border: 2px solid brown;
+     padding: 3px;
+     margin: 8px;
+     background-color: lightpink;
+     border-radius: 4px;
+     display: inline-block">
+  Sending to backend. Directed by parent ...
+</div>
+
+
+<p>Number from parent: {{numberFromParent}}</p>
+
+<p>child variable: {{childValiable}} how can parent get this value and send it to service </p>

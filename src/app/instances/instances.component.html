@@ -1,0 +1,7 @@
+<h2>Parent and 3 child components</h2>
+<ng-container *ngFor="let n of allInstances">
+  <app-instance-child [someInput]="n"></app-instance-child>
+</ng-container>
+<h3>Seem to be 3 different instances.</h3>
+<h3> Is this behavior the same with FormControls?</h3>
+

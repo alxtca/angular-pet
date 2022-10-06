@@ -1,8 +1,7 @@
-import {Component, Input, OnInit, OnChanges, HostBinding} from '@angular/core';
-import {BehaviorSubject, Subject} from "rxjs";
+import {Component, Input, OnInit, HostBinding} from '@angular/core';
+import {BehaviorSubject} from "rxjs";
 import {NotifyService} from "../notify.service";
 import {Notification} from "../interface/notification";
-import {uuid} from "uuidv4";
 
 @Component({
   selector: 'app-notify',

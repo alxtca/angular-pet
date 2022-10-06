@@ -1,0 +1,14 @@
+<p>Parent-child communication</p>
+<app-show-number [numberFromParent]="parnum" [sendToServer]="submitForm"></app-show-number>
+<button (click)="handleIncrease()">Increase</button>
+<ul>Communication through a service
+<li>Inject and call service method on Parent.</li>
+<li>Service use BehaviorSubject. Method use next(new value).</li>
+<li>Child injects service and subscribes to BehaviorSubject</li>
+</ul>
+<button (click)="sendToService()">Send to server (through a service)</button>
+<ul>Communication directly
+  <li>Parent use BehaviorSubject. Method use next(new value).</li>
+  <li>Child takes BehaviorSubject variable as Input() and subscribes to BehaviorSubject</li>
+</ul>
+<button (click)="sendToChild()">Send to server (directly to child)</button>

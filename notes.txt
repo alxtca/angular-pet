@@ -28,3 +28,15 @@ Next things to do with this app:
 
 - explore more af Akita features:
   * setLoading() ...
+
+---AKITA
+1. add store to project
+    ng g af component_folder/component_name --plain
+
+  example: ng g af bug-tracker/tracker --plain
+  will create folder "state" inside folder "bug-tracker"
+        and 3 files
+        tracker.query.ts
+        tracker.service.ts
+        tracker.store.ts
+.

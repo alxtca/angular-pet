@@ -1,0 +1,10 @@
+<h3 #domElRef>View child</h3>
+<p>Access instance of components used in template</p>
+<p>other words are used: to query template</p>
+
+<app-child-example></app-child-example>
+<button (click)="logChild()">log child card query</button>
+<button (click)="modifyChild()">modify child property</button>
+<button (click)="runMethodOnChild()">run method on child component</button>
+<app-child-example2 #tempVarChild2 [someNum]="999"></app-child-example2>
+<button (click)="logChild2()">log child2 card query</button>

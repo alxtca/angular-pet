@@ -1,0 +1,14 @@
+<h2>Simple to do app with custom store class</h2>
+<div>
+  <ul>
+    <li *ngFor="let todo of todos">
+      {{todo}}
+      <button (click)="deleteTodo(todo)">Delete</button>
+      <button (click)="editTodo(todo)">Edit</button>
+    </li>
+  </ul>
+
+</div>
+
+<!--here input component communicate directly to state service to store input-->
+<app-input-todo></app-input-todo>

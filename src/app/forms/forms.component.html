@@ -1,0 +1,57 @@
+<h2> FormControls </h2>
+<h2> Template binds directly to control through FormGroup </h2>
+<p>formControlName - corresponds to a key of control inside formGroup</p>
+<form [formGroup]="form1" (ngSubmit)="submitHandler()">
+  <input formControlName="email" />
+  <input formControlName="password" />
+  <button type="submit" [disabled]="!form1.valid">Submit</button>
+</form>
+<p> form1: {{form1.value | json}}</p>
+
+<h2> Template binds directly to FormControls </h2>
+<div>
+  <input [formControl]="email">
+  <input [formControl]="password">
+  <button type="submit" [disabled]="!form2.valid">Submit</button>
+</div>
+<p> form2: {{form2.value | json}}</p>
+
+<h2> FormGroup inside FormGroup </h2>
+<div [formGroup]="form3" >
+  <input formControlName="title" >
+
+  <div formGroupName="address_group" >
+    <input formControlName="street" >
+    <input formControlName="city" >
+
+    <div formGroupName="code_group">
+      <input formControlName="zip" >
+      <input formControlName="num" >
+
+    </div>
+  </div>
+</div>
+<p>form: {{form3.value | json}}</p>
+<button (click)="logForm3()">Log to console</button>
+
+<h2> FormGroup with FormArray(FormGroup(controls)) </h2>
+
+<div [formGroup]="form4">
+
+  <input formGroupName="title" >
+
+  <div formArrayName="cars" >
+
+    <div *ngFor="let c of cars.controls; let i=index">
+
+      <!-- The repeated formArray template -->
+      <div [formGroupName]="i">
+        <input formControlName="model">
+        <input formControlName="year">
+
+      </div>
+    </div>
+  </div>
+  <button (click)="addCar()">Add car</button>
+</div>
+<p>form: {{form4.value | json}}</p>

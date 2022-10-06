@@ -1,7 +1,8 @@
-import {Injectable} from "@angular/core";
 import {AtodoState, AtodoStore} from "./atodo.store";
 import {Query} from "@datorama/akita";
 import {Observable} from "rxjs";
+import {Injectable} from "@angular/core";
+import {Todo} from "./todo.model";
 
 //query provides methods to fetch specific data from store(state)
 
@@ -12,17 +13,23 @@ export class AtodoQuery extends Query<AtodoState> {
     super(store);
   }
 
-  getAllTodos(): Observable<string[]> {
+  getAllTodos(): Observable<Todo[]> {
+    /*
+    : Observable<string[]>
     //console.log("getValue() : ", this.getValue()) //return Array
     //console.log("select('todos') :", this.select('todos')) //return Observable
     return this.select('todos') //I want to return an observable, to subscribe to it in template
+     */
+    return this.select('todos')
   }
 
-  getTodosList() {
-    return this.getValue()
-  }
+  //other methods that can be made here:
+  //get by id
 
-  getOneTodo() {
-
+  getTodo(id: string): any {
+    return this.getValue().todos.filter(todo => todo.id === id)
   }
+  //get by filtering results:
+  // filter by message
+  // filter by completion
 }
