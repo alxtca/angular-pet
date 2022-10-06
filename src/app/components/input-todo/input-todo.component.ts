@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TodosService} from "../../services/todos.service";
-import {FormControl} from "@angular/forms";
+import {UntypedFormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-input-todo',
@@ -9,7 +9,7 @@ import {FormControl} from "@angular/forms";
 export class InputTodoComponent implements OnInit {
 
   //todo: string = '' //two way binding is an option
-  todo = new FormControl('default todo')
+  todo = new UntypedFormControl('default todo')
   isEditing: boolean = false
 
   constructor(private todoService: TodosService) {

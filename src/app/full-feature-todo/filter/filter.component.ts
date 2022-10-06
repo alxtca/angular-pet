@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormControl} from "@angular/forms";
+import {UntypedFormControl} from "@angular/forms";
 import {VISIBILITY_FILTER, TodoFilter} from "./filter.model";
 
 @Component({
@@ -20,10 +20,10 @@ export class FilterComponent implements OnInit {
   @Input() filters!: TodoFilter[];
   @Output() update = new EventEmitter<VISIBILITY_FILTER>();
 
-  control!: FormControl;
+  control!: UntypedFormControl;
 
   ngOnInit() {
-    this.control = new FormControl(this.active);
+    this.control = new UntypedFormControl(this.active);
 
     this.control.valueChanges.subscribe(c => {
       this.update.emit(c);
