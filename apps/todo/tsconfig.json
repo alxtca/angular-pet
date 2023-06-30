@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "strict": false,
+    "module": "commonjs",
+    "target": "es2016",
+    "lib": [
+      "dom",
+      "es7"
+    ],
+    "types": ["cypress"],
+    "jsx": "react",
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "**/*.ts"
+  ],
+  "esModuleInterop": true,
+  "allowSyntheticDefaultImports": true,
+  "compileOnSave": false
+}

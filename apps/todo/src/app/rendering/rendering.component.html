@@ -1,0 +1,10 @@
+<h2>Rendering</h2>
+<p>Case: child component has 2 states</p>
+<p>It use state2 to update state1 on parent. State1 is taken as input to child component.</p>
+
+<p>parent control: <strong>{{parent_control.value}}</strong></p>
+
+<h4>Child component</h4>
+<app-kid [control]="parent_control"></app-kid>
+
+<p>It seem to re-render component all just fine</p>

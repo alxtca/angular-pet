@@ -1,0 +1,32 @@
+<nav class="nav-bar">
+
+  <ul>
+    <ng-container *ngFor="let item of navigation">
+
+      <!-- show menu link button -->
+      <ng-container *ngIf="isExpandable(item); else menu_link">
+        <li (click)="showHide(item.title)"><a [routerLink]="item.link ? item.link : '/' ">
+          {{item.title}} {{item.expanded ? '-' : '+'}}
+        </a></li>
+      </ng-container>
+
+      <!-- show link button -->
+      <ng-template #menu_link>
+        <li><a [routerLink]="item.link ? item.link : '/' ">
+          {{item.title}}
+        </a></li>
+      </ng-template>
+
+      <!-- show expanded menu if it exist and expanded==true -->
+      <ng-container *ngIf="isExpandable(item) && item.expanded"> <!-- item.expandable && item.expanded - could run a function here to test if key exist-->
+        <ul>
+          <li *ngFor="let ex_item of item.submenu">
+            <a [routerLink]="ex_item.link" >{{ex_item.title}}</a>
+          </li>
+        </ul>
+      </ng-container>
+
+    </ng-container>
+  </ul>
+
+</nav>

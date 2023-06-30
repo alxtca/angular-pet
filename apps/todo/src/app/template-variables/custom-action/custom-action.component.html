@@ -1,0 +1,41 @@
+<p><strong>This is a component is sendt as a template</strong></p>
+<p>It has access to weather-widget methods through ngTemplateOutletInjector</p>
+<button (click)="onClick()">Reload & Copy</button>
+<!--
+Thid need to trigger actions from weather widget componet
+like they are defined in weather widget template
+    <ng-template #defaultWidgetAction>
+      <button (click)="actions.reload()">Reload</button>
+      <button (click)="actions.copyData()">Copy Info</button>
+    </ng-template>
+
+Some logic:
+1. This template will be rendered inside WeatherWidgetComponent(after ngTemplateOutlet action)
+<app-weather-widget>
+  <app-custom-action></app-custom-action>
+</app-weather-widget>
+so we could inject WeatherWidgetComponent into CustomActionComponent
+(because action component look to be child to weather widget)
+
+  class CustomActionComponent {
+    weatherWidget = inject(WeatherWidgetComponent)
+
+    onClick() {
+      this.weatherWidget.actions.reload();
+      this.weatherWidget.actions.copyData();
+    }
+
+... BUT error in console: no provider for WeatherWidgetComponent
+because parent injector will point to where this component is declared and not where it is eventually rendered.
+
+<app-custom-action></app-custom-action> - is declared in TemplateVariablesComponent
+
+to solve this problem:
+need to explicitly provide which injector needs to be used
+as a parent for the components inside the embedded view.
+It can be provided as property of ngTemplateOutlet directive.
+
+Provide parent injector for components embedded view
+
+
+-->

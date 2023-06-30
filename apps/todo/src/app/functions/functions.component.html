@@ -1,0 +1,39 @@
+<h2>Functions and objects</h2>
+
+<h3>Functions</h3>
+<code ngNonBindable>
+  // Named function <br>
+  function greet(name: string) &#123; <br>
+  &nbsp;return 'hello ' + name<br>
+  }<br>
+  <br>
+  // Function expression<br>
+  let greet2 = function(name: string) &#123;<br>
+  &nbsp;return 'hello ' + name<br>
+  }<br>
+  <br>
+  // Arrow function expression<br>
+  let greet3 = (name: string) => &#123;<br>
+  &nbsp; return 'hello ' + name<br>
+  }<br>
+</code> <br>
+
+<h3>Objects</h3>
+ <code>
+   let person = &#123; <br>
+   &nbsp; name: 'John', <br>
+   &nbsp; showInfo: function() &#123; <br>
+   &nbsp; &nbsp; console.log("persons name: ", this.name); <br>
+   }
+ </code> <br>
+<p>showInfo is a objects method or a function</p>
+<button (click)="runShowInfo()">Run showInfo()</button>
+<button (click)="this.person.logObjectMessage('New message')">Run logObjectMessage()</button>
+<button (click)="this.person.logGlobalMessage('really changed')">Run logGlobalMessage()</button>
+<h3>Input to functions</h3>
+<p>string, number - passed to function by copy</p>
+<p>object is passed to function by reference</p>
+<h3>Rest parameters - make function accept multiple arguments</h3>
+<button (click)="person.greetMany('Lara', 'Lisa', 'Randi')">Run greetMany()</button>
+<button (click)="person.greetManyWithMessage('Lara', 'Lisa', 'Randi')">Run greetManyWithMessage()</button>
+<button (click)="test1()">Run test1()</button>

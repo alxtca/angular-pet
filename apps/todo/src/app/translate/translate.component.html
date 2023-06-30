@@ -1,0 +1,65 @@
+<div>
+  <h2>{{ 'HOME.TITLE' | translate }}</h2>
+
+  <label>
+    {{ 'HOME.SELECT' | translate }}
+
+    <select #langSelect (change)="translate.use(langSelect.value)">
+      <option *ngFor="let lang of translate.getLangs()"
+              [value]="lang"
+              [selected]="lang === translate.currentLang"
+      >{{ lang }}</option>
+    </select>
+  </label>
+
+</div>
+
+<h3>{{ translate.instant('HELLO')}} {{ translate.instant('WORLD')}}</h3>
+<button (click)="setLang('en')">English</button>
+<button (click)="setLang('nn')">Norsk</button>
+
+<h3 style="margin-top: 10px;">With directive</h3>
+<p translate>HELLO</p>
+
+<h3>Translate in child component. rendered inside <code>< ng-content >< /ng-content ></code></h3>
+<app-child>
+  <p>{{ 'HELLO' | translate }}</p>
+</app-child>
+
+<h3>Or like this:</h3>
+<app-child>
+  <p translate>HELLO</p>
+</app-child>
+
+<h3>Or like this:</h3>
+<app-child>
+  <label translate>HELLO</label>
+</app-child>
+
+<!--WHEN SENDING INTO NG-CONTENT DON'T DO LIKE THIS:
+<app-child translate>
+  <p>HELLO</p>
+</app-child>-->
+
+
+
+<!--with input parameters:
+in component:
+param = {value: 'world'};
+
+in template:
+<div>{{ 'HELLO' | translate:param }}</div>
+
+in en.json:
+{
+    "HOME": {
+        "HELLO": "hello {{value}}"
+    }
+}
+-->
+
+<!--with directive
+<div [translate]="'HELLO'" [translateParams]="{value: 'world'}"></div>
+or simpler:
+<div translate [translateParams]="{value: 'world'}">HELLO</div>
+-->

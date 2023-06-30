@@ -1,0 +1,43 @@
+
+<table>
+
+  <thead>
+
+    <tr class="table-header">
+      <th colspan="2">Brand</th>
+      <th>Model</th>
+      <th>Year</th>
+    </tr>
+
+  </thead>
+
+    <!--shown by default primal info-->
+    <ng-container *ngFor="let car of cars; index as i">
+    <tbody id="the-body-{{i}}"> <!--inside, so aria-control on ng-container can reference id on tbody-->
+      <tr role="button" id="car-row-{{i}}">
+        <td class="show-extras">+</td>
+        <td>{{car.brand}}</td>
+        <td>{{car.model}}</td>
+        <td>{{car.year}}</td>
+      </tr>
+
+      <!--expanded extra info-->
+      <ng-container *ngFor="let extra of car.details; index as ii">
+        <tr class="table-row-light " [ngClass]="ii%2===0 ? 'table-row-dark' : ''">
+          <td colspan="2" rowspan="1"></td>
+          <td>mod:{{extra.modification}}</td>
+          <td>hp:{{extra.hp}}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+    </ng-container>
+
+
+
+</table>
+
+<!--
+<colgroup>
+  <col>
+</colgroup>
+-->

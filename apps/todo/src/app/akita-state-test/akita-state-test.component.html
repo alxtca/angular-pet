@@ -1,0 +1,64 @@
+<p>store state: {{currentState$ | async | json}}</p>
+<p>store getValue(): {{currentStateFromGetState | json}}</p>
+
+<div class="card-child">
+  <h3>Update one property in state</h3>
+  <code>
+    this.store.update(&lbrace;name: "Ktulhu"&rbrace;)
+  </code>
+  <button (click)="updateStore()">Update</button>
+</div>
+
+<div class="card-child">
+  <h3>Update all propertyes</h3>
+  <code>
+    this.store.update(&lbrace;name: "John", count: 18})
+  </code>
+  <button (click)="replaceStore()">Update</button>
+</div>
+
+<div class="card-child">
+  <h3>Update some propertyes</h3>
+  <code>
+    const pf = &lbrace;name: "Spread", count: 777} <br>
+    this.store.update(&lbrace;...pf})
+  </code>
+  <button (click)="updateStoreWSpread()">Update</button>
+</div>
+
+
+<h2>Take current state as parameter to modify it and save</h2>
+<div class="card-child">
+  <h3>Update with ...</h3>
+  <code>
+    this.store.update(state =>
+    (&lbrace;...state, name: state.name + "son"})
+    )
+  </code>
+  <button (click)="updateWithCallback()">Update</button>
+</div>
+<div class="card-child">
+  <h3>Update without ...</h3>
+  <code>
+    this.store.update(state =>
+    (&lbrace;name: state.name + "son"})
+    )
+  </code>
+  <button (click)="updateWithCallback2()">Update</button>
+</div>
+<h2>Store class creates automatically methods to update individual propertyes</h2>
+<div class="card-child">
+  <code>
+    this.store.updateCount(20)
+  </code>
+  <button (click)="testMethod()">Update</button>
+</div>
+<div class="card-child">
+  <h3>Doesn't seem to do anything</h3>
+  <code>
+    this.store.reset()
+  </code>
+  <button (click)="storeReset()">Reset</button>
+</div>
+
+

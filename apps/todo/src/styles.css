@@ -1,0 +1,160 @@
+/* You can add global styles to this file, and also import other style files */
+/*html, body { height: 100%; }*/
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: silver;
+}
+
+/*layer-1*/
+.page {
+  display: flex;
+  flex-wrap: nowrap;
+}
+/*layer-2*/
+.nav-container {
+  /* min(a,b%) - to keep from growing on large screens, and to take all space on small screen */
+  width: 200px;
+
+  height: 95vh;
+  overflow-y: auto;
+
+  position: sticky;
+  top: 2.5vh;
+}
+.main {
+  width: min(1000px, 95%);
+  margin-right: auto;
+}
+/**/
+
+/*nav bar with all children*/
+.nav-bar {
+/*  background-color: cornflowerblue;*/
+}
+.nav-bar ul {
+  padding: 0 0 0 20px;
+}
+.nav-bar ul li {
+  border: 1px solid darkblue;
+  border-radius: 2px;
+  margin: 2px;
+  padding: 2px 4px;
+  list-style: none;
+  box-shadow: 2px 2px 2px gray;
+  display: flex;
+  flex-direction: column;
+}
+a {
+  text-decoration: none;
+  flex: 1 1 100%; /* to fill button 100% to make it clickable anywhere in side <li>*/
+}
+.nav-bar ul li:hover {
+  background-color: lightgrey;
+}
+.nested-list-hidden {
+  display: none;
+}
+/*end nav bar with all children*/
+
+/*main children */
+.card {
+  background-color: lightgrey;
+  padding: 20px;
+  margin: 10px;
+  border: 2px solid darkgray;
+  border-radius: 6px;
+  color: black;
+}
+.card-child {
+  padding: 15px;
+  margin: 8px 0;
+  background-color: lightsteelblue;
+  border-radius: 6px;
+  box-shadow: 6px 6px 4px gray;
+}
+/**/
+
+/**/
+
+.container {
+  background-color: lightslategrey;
+  width: min(86%, 800px);
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.row {
+  display: flex;
+}
+
+/* by component tag */
+app-root {
+  color: white;
+  background-color: lightpink; /*this is the one does not work*/
+}
+
+.box1 {
+  width: auto;
+  height: auto;
+  border: 1px solid red;
+}
+.skirt {
+  background-color: coral;
+}
+
+.span1 {color: red;}
+.span2 {color: yellow;}
+
+/*.bg {
+  color: black;
+}*/
+
+section {
+  display: table;
+}
+
+.example-label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 8px;
+  min-width: 120px;
+}
+
+.example-button-row {
+  display: table-cell;
+  width: 490px;
+}
+
+.example-button-row .mat-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}
+
+.template-variables-ex1 {
+  border: solid 2px black;
+  border-radius: 4px;
+  background-color: gold;
+  color: darkslategrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.alt-header {
+  font-size: 34px;
+  font-weight: bold;
+}
+

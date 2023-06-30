@@ -1,0 +1,49 @@
+
+table {
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+table, td {
+  /*border: 1px solid darkred;*/
+  border-collapse: collapse;
+}
+
+td, th {
+  padding: 3px 5px;
+}
+
+tr {
+  border-bottom: 2px solid black;
+}
+tr:hover {
+  background-color: white;
+}
+
+.table-row-light {
+  background-color: lightgoldenrodyellow;
+}
+
+.table-row-dark {
+  background-color: gray;
+}
+
+
+.table-header {
+  background-color: aquamarine;
+  padding: 2.5em;
+  /*border: 1px solid black;*/
+  border-radius: 5px;
+}
+
+.table-brand {
+
+}
+
+.show-extras {
+  width: 4%;
+}
+.show-extras:hover {
+  cursor: pointer;
+}

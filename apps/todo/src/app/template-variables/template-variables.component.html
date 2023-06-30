@@ -1,0 +1,141 @@
+<h2> Template reference #variable </h2>
+
+<h2>Template outlet</h2>
+<p>Goal is to create reusable components with customizable and extensible views ( view customization).</p>
+<ul>
+  <li>creating views from templates</li>
+  <li>providing template context data
+    <p>context - is data that is available for a template (example- widget content)</p>
+    <p></p>
+  </li>
+  <li>controlling the proper Angular Dependency Injection flow</li>
+</ul>
+
+<p>create embedded view ? </p>
+
+<!--without arguments - use default template-->
+<app-weather-widget></app-weather-widget>
+<!--provide custom template for various sections -->
+<app-weather-widget
+  [headerTemplate]="altWidgitHeader"
+  [contentTemplate]="altWigitContent"
+  [actionTemplate]="altWidgitAction"
+></app-weather-widget>
+
+<ng-template #altWidgitHeader>
+  <div class="alt-header">Today's weather</div>
+</ng-template>
+
+<!--
+let-state="state"
+let-implicit_key="template_context_key"
+2nd -reference to key of the template context object
+[ngTemplateOutletContext]="{ template_context_key: state }"></ng-container>
+
+$implicit - default value of this context. When this key is used, can simplify
+let-state
+now this state above, can be used in template
+-->
+<ng-template #altWigitContent let-temp_state="template_context_key">
+  <div>
+    <span>{{temp_state.data.temperature}}°C</span> -
+    <span>{{temp_state.data.skyCondition === 'sunny' ? '☀️' : '☁️'}}</span> -
+    <span>{{temp_state.data.windspeed}}m/s</span> -
+  </div>
+</ng-template>
+
+<ng-template #altWidgitAction>
+  <app-custom-action></app-custom-action>
+</ng-template>
+
+<!--  https://angular.io/guide/template-reference-variables  -->
+<!--https://www.youtube.com/watch?v=vfPVdJ2oQlM-->
+<br>
+<p>on a component, the variable refers to the component instance.</p>
+
+<ng-template #template1 let-ctx="ctx" name="tryTemplateOut">
+  <p style="color: aqua"> on ng-template refers to a TemplateRef instance</p>
+  <!--  <button (click)="logCtx(ctx)">log ctx</button>
+    <p>Btw, this is ng-template. To show this, use [ngTemplateOutlet] on ng-container or div</p>-->
+</ng-template>
+<ng-template #template2 let-person>
+  <p>{{person.name}} is a {{person.job}}</p>
+</ng-template>
+
+<!--one way to display ng-template contents-->
+<div [ngTemplateOutlet]="template1"
+     [ngTemplateOutletContext]="{$implicit: 'this is implicit value', ctx: 'this is ctx value'}"
+></div>
+<!--another way, shall work with div -->
+<ng-content *ngIf="false; else template1"></ng-content>
+<ng-container *ngIf="false; else template1"></ng-container>
+<!--send this template to a component to use this template, must send it to @Input()-->
+<app-display-template [inputTemplate]="template1"></app-display-template>
+<app-display-template>
+  <p #para >paragraph element inside app-display-template tags</p>
+</app-display-template>
+
+<button (click)="logTemplate(template1)">console.log template</button>
+<div *ngIf="template1"><p>*ngIf="tempVar"</p></div>
+<br><br>
+
+<!--<div dropdown>
+  <button dropdownToggle>{{selected}}</button>
+  <ul dropdownMenu>
+    <li *ngFor="let option of options" (click)="selectOption(option)" )>
+      {{option}}
+    </li>
+  </ul>
+</div>-->
+<!-- this template has take use of username provided in component and render it -->
+<h2 style="color:mediumvioletred">app-select-string</h2>
+<app-select-string
+  [displayList]="customers_obj"
+  [displayTemplate]="template2"
+>
+  <!--  here you can define another template and access it with @ContentChild-->
+</app-select-string>
+<br>
+<br>
+<!-- now I have *ngFor, each item will display a template
+(it is no point to use template in this case, because you have all variables in the scope, right?) -->
+<ng-template #forCustomerObjects>
+  <!-- why to use template: -to send some template data to the component
+        - will I not send data with ngFor="let i of items" <comp [input]="i"> ?
+        - not if *ngFor is defined inside component
+        - I think if I want to send url link for each item in array
+   -->
+</ng-template>
+<div [ngTemplateOutlet]="forCustomerObjects"></div>
+
+<input #phone placeholder="phone number" />
+<button (click)="callPhone(phone.value)">Call</button>
+<div *ngIf="isCalling" class="template-variables-ex1">
+    <p>Calling: {{phone.value}}</p>
+</div>
+<!-- phone refers to the input element; pass its `value` to an event handler -->
+<!--<button type="button" (click)="callPhone(phone.value)">Call</button>-->
+<!--<button type="button">Call</button>-->
+<p>template variable (on HTML tag, refers to the element.) phone.value: {{phone.value}}</p>
+<p>updates on click. why?</p>
+
+<h2 style="color: lightgreen"> Template input #variable </h2>
+<ul>
+  <li *ngFor="let customer of customers">{{customer}}</li>
+</ul>
+
+<h2>Template outlet practice</h2>
+
+<app-widget-practice
+[inputTemplate]="practiceTemplate"
+></app-widget-practice>
+
+<ng-template #practiceTemplate let-template_state="ctx_key">
+  <div class="card-child">
+    <h3>Custom practivce template Header</h3>
+    <p>And lorem ipsum content</p>
+    <h4>This is context:</h4>
+    <p>{{template_state}}</p>
+    <button (click)="logCTX(template_state)">Log ctx</button>
+  </div>
+</ng-template>

@@ -1,0 +1,18 @@
+<h2>I want to observ a variable</h2>
+<ol>
+  <li>Make an observable out of it: <code>this.apples$ = of(this.apples)</code></li>
+  <li>Subscribe to observable: <code>this.apples$.subscribe(v=> console.log("aplles value: ", v))</code> </li>
+  <li>And watch observable emit one time. Does not re-emit even if apples value changes.</li>
+</ol>
+
+
+<p>variable apples value: {{apples}}</p>
+<button (click)="addApples()">Increase apples</button>
+
+<ol>
+  <li>Create BehavioSubject <code>applesBehavior$ = new BehaviorSubject(this.apples);</code></li>
+  <li>Subscribe to it <code>this.applesBehavior$.subscribe(v=> console.log("apllesBehavior value: ", v));</code></li>
+  <li>Use next method and see changes: <code>this.applesBehavior$.next(this.apples++)</code></li>
+
+</ol>
+<button (click)="addApples2()">Increase apples</button>

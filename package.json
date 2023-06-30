@@ -2,11 +2,12 @@
   "name": "todo",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve --port 4900 -o",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "ng": "nx",
+    "start": "nx serve --port 4900 -o",
+    "build": "nx build",
+    "watch": "nx build --watch --configuration development",
+    "test": "nx test",
+    "postinstall": "node ./decorate-angular-cli.js"
   },
   "private": true,
   "dependencies": {
@@ -23,6 +24,11 @@
     "@datorama/akita": "^7.1.1",
     "@datorama/akita-ng-entity-service": "^7.0.0",
     "@datorama/akita-ng-router-store": "^7.0.0",
+    "@ngx-translate/core": "^14.0.0",
+    "@ngx-translate/http-loader": "^7.0.0",
+    "@nrwl/angular": "^15.0.0",
+    "date-fns": "^2.29.3",
+    "moment": "^2.29.4",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "uuidv4": "^6.2.13",
@@ -33,14 +39,18 @@
     "@angular/cli": "^14.2.5",
     "@angular/compiler-cli": "^14.2.5",
     "@datorama/akita-ngdevtools": "^7.0.0",
+    "@nrwl/workspace": "15.0.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
+    "cypress": "^10.11.0",
     "jasmine-core": "~4.0.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "nx": "15.0.0",
+    "prettier": "^2.6.2",
     "typescript": "~4.6.2"
   }
 }

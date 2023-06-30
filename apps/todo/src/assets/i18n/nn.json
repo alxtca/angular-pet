@@ -1,0 +1,8 @@
+{
+  "HELLO": "Hei",
+  "WORLD": "Verden",
+  "HOME": {
+    "TITLE": "Hei Angular with ngx-translate!",
+    "SELECT": "Velge språk"
+  }
+}

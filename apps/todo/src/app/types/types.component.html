@@ -1,0 +1,23 @@
+<h1> Enum </h1>
+<p>An enum is a special "class" that represents a group of constants (unchangeable variables). <a href="https://www.w3schools.com/typescript/typescript_enums.php" target="_blank">w3 link</a></p>
+<p>An enum is a compound data type where every possible value is defined as a symbolic constant. <a href="https://www.learncpp.com/cpp-tutorial/unscoped-enumerations/" target="_blank">Learncpp link</a></p>
+<p>When to use: when a variable can only have a small set of possible values. </p>
+
+<h2>Numeric enums</h2>
+<p>{{apple1}}</p>
+
+<div [ngClass]="returnerFarge(apple1)"></div>
+<div [ngClass]="returnerFarge(apple2)"></div>
+<div [ngClass]="returnerFarge(apple3)"></div>
+
+<button (click)="byttFarge()">Bytt farge</button>
+<div [ngClass]="returnerFarge(apple)"></div>
+<br>
+<p>hvis dette skal fungere må variabelen leses ut fra template hver gang</p>
+<button (click)="byttFarge2(apple)">Bytt farge</button>
+<div [ngClass]="returnerFarge(apple)"></div>
+
+<h2>String enums</h2>
+<app-farge-viseren [farge]="eple1.farge" [size]="eple1.size"></app-farge-viseren>
+<app-farge-viseren [farge]="eple2.farge" [size]="eple2.size"></app-farge-viseren>
+<app-farge-viseren [farge]="eple3.farge" [size]="eple3.size"></app-farge-viseren>
